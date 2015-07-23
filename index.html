@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>drag</title>
+  <style>
+  /**{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+  }*/
+    html,body,ul,li,div,span,p{
+      padding:0;
+      margin:0;
+    }
+    ul{list-style: none;}
+    .container{
+      width:800px;
+      margin:100px auto;
+      border:1px solid red;
+    }
+    /*.con2{
+      position: relative;
+      width: 50%;
+      margin:10px;
+      margin-left:50%;
+    }
+    .con1{
+      position: absolute;
+      left:-100%;
+      top:0;
+    }*/
+    .con1,.con2{
+      width: 300px;
+      height:200px;
+      border:1px solid #ccc;
+      position: relative;
+    }
+    .con1 li,.con2 li,.con3 li{
+      height:30px;
+      line-height: 30px;
+      border:1px solid #ddd;
+      cursor:pointer;
+      background-color: #fff;
+    }
+    .con3{
+      float: left;
+      width:200px;
+      height:100px;
+      border:1px solid #ccc;
+    }
+  </style>
+  <script src="jquery-1.7.2.min.js"></script>
+  <script src="jq-drag.js"></script>
+</head>
+<body>
+  <div class="container">
+   <!--  unselectable="on" onselectstart="return false;"-->
+      <ul id="con0" class="con1">
+        <li>我可以拖拽1</li>
+        <li>我可以拖拽2</li>
+        <li>我可以拖拽3</li>
+        <li>我可以拖拽4</li>
+      </ul>
+      <ul id="con1" class="con3"></ul><ul id="con2" class="con3"></ul><ul id="con3" class="con3"></ul>
+      <div style="clear:both;"></div>
+  </div>
+  <script>
+  //window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+    $(function(){
+      $('#con0,#con1,#con2,#con3').dragMove({hoverBorder:'1px solid blue'});
+    });
+  </script>
+</body>
+</html>
